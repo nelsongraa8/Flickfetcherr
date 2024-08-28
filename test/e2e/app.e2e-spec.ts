@@ -15,9 +15,9 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('/search?q=Batman (GET)', () => {
     return request(app.getHttpServer())
-      .get('/')
+      .get('/search?q=Garfield')
       .expect(200)
       .expect((res) => {
         const body = res.body;
