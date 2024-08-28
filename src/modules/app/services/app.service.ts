@@ -28,7 +28,11 @@ export class AppService {
   }
 
   private transformTextToJson(textToJson: any): any {
-    return parseStringPromise(textToJson);
+    const options = {
+      explicitArray: false
+    };
+    return parseStringPromise(textToJson, options);
+  }
 
   private generateURlJackett(): string {
     const jackett = {
