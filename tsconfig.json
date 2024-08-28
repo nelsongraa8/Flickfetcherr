@@ -5,6 +5,7 @@
       "@modules/*": ["src/modules/*"],
       "@config/*": ["src/config/*"],
       "@shared/*": ["src/shared/*"],
+      "@core/*": ["src/core/*"],
     },
     "declaration": true,
     "removeComments": true,
