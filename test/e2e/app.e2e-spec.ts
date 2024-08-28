@@ -15,7 +15,7 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/search?q=Batman (GET)', () => {
+  it('search (GET)', () => {
     return request(app.getHttpServer())
       .get('/search?q=Garfield')
       .expect(200)
