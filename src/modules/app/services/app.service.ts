@@ -1,6 +1,6 @@
 
 import { Injectable } from '@nestjs/common';
-import { HttpExternalService } from '@core/service/http-external.service';
+import { HttpExternalService } from '@core/services/http-external.service';
 
 @Injectable()
 export class AppService {
