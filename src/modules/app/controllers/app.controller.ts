@@ -1,14 +1,13 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { AppService } from '@modules/app/services/app.service';
 import { Observable } from 'rxjs';
 
-@Controller()
+@Controller('search')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  async getHello(): Promise<any> {
-    const getHello = this.appService.getHello(); 
-    return getHello;
+  async getHello(@Query('q') movieName: string): Promise<any> {
+    return this.appService.getHello(movieName);
   }
 }
