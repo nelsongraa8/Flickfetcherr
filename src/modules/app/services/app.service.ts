@@ -40,9 +40,10 @@ export class AppService {
       host: '192.168.1.2',
       port: '9117',
       apiKey: '2qcu5p593jafl80xxda0ssni49ueizcm',
+      indexer: 'all'
   };
 
-  const baseUrl = `${jackett.protocol}://${jackett.host}:${jackett.port}/api/v2.0/indexers/dontorrent/results/torznab/api`;
+  const baseUrl = `${jackett.protocol}://${jackett.host}:${jackett.port}/api/v2.0/indexers/${jackett.indexer}/results/torznab/api`;
   const params = new URLSearchParams({
       apikey: jackett.apiKey,
       t: 'search',
