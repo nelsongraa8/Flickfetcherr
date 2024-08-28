@@ -1,37 +1,18 @@
-import { HttpService } from '@nestjs/axios';
+
 import { Injectable } from '@nestjs/common';
-import { firstValueFrom } from 'rxjs';
+import { HttpExternalService } from 'src/core/service/http-external.service';
 import { parseStringPromise } from 'xml2js';
 
 @Injectable()
 export class AppService {
   movieName: string;
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpExternalService: HttpExternalService) {}
 
   public async getHello(movieName: string): Promise<any> {
     this.movieName = movieName;
 
-    return this.responseHttpExternalService()
-      .then(response => {
-        return this.transformTextToJson(response.data);
-      })
-      .catch(error => {
-        return error;
-      });
-  }
-
-  private async responseHttpExternalService(): Promise<any> {
-    return await firstValueFrom(
-      this.httpService.get(this.generateURlJackett()),
-    );
-  }
-
-  private transformTextToJson(textToJson: any): any {
-    const options = {
-      explicitArray: false
-    };
-    return parseStringPromise(textToJson, options);
+    return this.httpExternalService.getHttpExternal(this.generateURlJackett())
   }
 
   private generateURlJackett(): string {
