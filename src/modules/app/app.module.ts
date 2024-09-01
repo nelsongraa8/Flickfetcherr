@@ -5,9 +5,16 @@ import { HttpModule } from '@nestjs/axios';
 import { CoreModule } from '@core/core.module';
 import { SharedModule } from '@shared/shared.module';
 import { MovieNowModule } from '@modules/movie-now/movie-now.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [HttpModule, CoreModule, SharedModule, MovieNowModule],
+  imports: [
+    HttpModule,
+    CoreModule,
+    SharedModule,
+    MovieNowModule,
+    ConfigModule.forRoot(),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
